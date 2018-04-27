@@ -1,0 +1,18 @@
+{
+  "name": "electron-nuxt-boilerplate",
+  "productName": "electron-nuxt-boilerplate",
+  "version": "1.0.0",
+  "description": "Electron application boilerplate based on nuxt for rapid application development",
+  "main": "./main.js",
+  "author": {
+    "name": "Nurdism",
+    "email": "nurdism.io@gmail.com",
+    "url": "https://github.com/nurdism"
+  },
+  "scripts": {
+    "electron-rebuild": "node ../.internals/scripts/rebuild.js",
+    "postinstall": "npm run electron-rebuild"
+  },
+  "license": "MIT",
+  "dependencies": {}
+}

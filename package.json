@@ -1,0 +1,106 @@
+{
+  "name": "electron-nuxt-boilerplate",
+  "productName": "electron-nuxt-boilerplate",
+  "version": "0.1.0",
+  "description": "Electron application boilerplate based on nuxt for rapid application development",
+  "main": "main.js",
+  "scripts": {
+    "dev": "npm run nuxt",
+    "build": "npm run nuxt build",
+    "nuxt": "node --trace-warnings -r dotenv/config ./node_modules/nuxt/bin/nuxt",
+    "electron-rebuild": "electron-rebuild --parallel --force --types prod,dev,optional --module-dir src",
+    "precommit": "npm run lint && npm run lint:styles",
+    "package": "npm run build && build --publish never",
+    "package-all": "npm run build && build -mwl",
+    "package-linux": "npm run build && build --linux",
+    "package-win": "npm run build && build --win --x64",
+    "lint": "eslint --ext .js,.vue --ignore-path .gitignore ./src",
+    "lint:fix": "npm run lint -- --fix",
+    "lint:styles": "stylelint ./src/assets/**/*.scss ./src/assets/**/*.css --syntax scss",
+    "lint:styles:fix": "npm run lint:styles -- --fix",
+    "deps": "npm-check -u",
+    "snyk": "snyk test"
+  },
+  "build": {
+    "productName": "ElectronNuxt",
+    "appId": "org.electron.nuxt",
+    "dmg": {
+      "contents": [
+        {
+          "x": 130,
+          "y": 220
+        },
+        {
+          "x": 410,
+          "y": 220,
+          "type": "link",
+          "path": "/Applications"
+        }
+      ]
+    },
+    "win": {
+      "target": [
+        "nsis"
+      ]
+    },
+    "linux": {
+      "target": [
+        "deb",
+        "AppImage"
+      ],
+      "category": "Development"
+    },
+    "directories": {
+      "buildResources": "src/assets/resources",
+      "output": "release",
+      "app": "dist"
+    }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nurdism/electron-nuxt-boilerplate.git"
+  },
+  "author": {
+    "name": "Nurdism",
+    "email": "nurdism.io@gmail.com",
+    "url": "https://github.com/nurdism"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/nurdism/electron-nuxt-boilerplate/issues"
+  },
+  "homepage": "https://github.com/nurdism/electron-nuxt-boilerplate#readme",
+  "keywords": [
+    "electron",
+    "vue",
+    "nuxt",
+    "sass",
+    "webpack"
+  ],
+  "devDependencies": {
+    "@nuxtjs/electron": "git+https://github.com/nurdism/nuxtjs-electron.git",
+    "babel-eslint": "^8.2.3",
+    "dotenv": "^5.0.1",
+    "electron": "^1.8.4",
+    "electron-builder": "^20.10.0",
+    "electron-debug": "^1.5.0",
+    "electron-devtools-installer": "^2.2.3",
+    "electron-rebuild": "^1.7.3",
+    "electron-updater": "^2.21.8",
+    "eslint": "^4.19.1",
+    "eslint-friendly-formatter": "^4.0.1",
+    "eslint-loader": "^2.0.0",
+    "eslint-plugin-vue": "^4.5.0",
+    "node-sass": "^4.9.0",
+    "npm-check": "^5.7.0",
+    "sass-loader": "^7.0.1",
+    "snyk": "^1.73.0",
+    "source-map-support": "^0.5.5",
+    "stylelint": "^9.2.0",
+    "stylelint-config-recommended-scss": "^3.2.0",
+    "stylelint-scss": "^3.1.0"
+  },
+  "dependencies": {
+    "nuxt": "^1.4.0"
+  }
+}
