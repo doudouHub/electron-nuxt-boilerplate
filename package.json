@@ -78,7 +78,6 @@
     "webpack"
   ],
   "devDependencies": {
-    "@nuxtjs/electron": "git+https://github.com/nurdism/nuxtjs-electron.git",
     "babel-eslint": "^8.2.3",
     "dotenv": "^5.0.1",
     "electron": "^1.8.4",
@@ -93,6 +92,7 @@
     "eslint-plugin-vue": "^4.5.0",
     "node-sass": "^4.9.0",
     "npm-check": "^5.7.0",
+    "nuxtjs-electron": "^0.1.2",
     "sass-loader": "^7.0.1",
     "snyk": "^1.73.0",
     "source-map-support": "^0.5.5",

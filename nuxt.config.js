@@ -11,7 +11,7 @@ module.exports = {
   ],
 
   modules: [
-    ['@nuxtjs/electron', {
+    ['nuxtjs-electron', {
       main: 'main.js',
       build: {
         extend(config, options, nuxt) {
