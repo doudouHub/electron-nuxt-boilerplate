@@ -1,5 +1,9 @@
 <p align="center">
-    <img width="128" src="https://raw.githubusercontent.com/nurdism/electron-nuxt-boilerplate/master/src/assets/resources/icons/icon.png">
+  <img width="128" src="https://i.imgur.com/sY8LqKi.png">
+  <br><br>
+  <img src="https://david-dm.org/nurdism/electron-nuxt-boilerplate/status.svg" alt="Dependencies Status">
+  <img src="https://david-dm.org/nurdism/electron-nuxt-boilerplate/dev-status.svg" alt="Dev Dependencies Status">
+  <img src="https://david-dm.org/nurdism/electron-nuxt-boilerplate/peer-status.svg" alt="Peer Dependencies Status">
 </p>
 
 # electron-nuxt-boilerplate

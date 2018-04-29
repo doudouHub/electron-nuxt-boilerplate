@@ -15,6 +15,6 @@ if (Object.keys(dependencies || {}).length > 0 && fs.existsSync(nodeModulesPath)
     : electronRebuildCmd;
 
   execSync(cmd, {
-    cwd: path.join(__dirname, '..', '..', 'app')
+    cwd: path.join(__dirname, '..', '..', 'src')
   });
 }
