@@ -5,7 +5,7 @@
   <img src="https://david-dm.org/nurdism/electron-nuxt-boilerplate/dev-status.svg" alt="Dev Dependencies Status">
   <img src="https://img.shields.io/github/tag/nurdism/electron-nuxt-boilerplate.svg" alt="Github Tag">
   <img src="https://img.shields.io/github/downloads/nurdism/electron-nuxt-boilerplate/latest/total.svg" alt="Downloads">
-  <a href="https://discord.gg/Kzkd6V3" ><img src="https://img.shields.io/badge/chat-on%20discord-blue.svg" alt="Chat on discord"><a/>
+  <a href="https://discord.gg/Kzkd6V3" ><img src="https://discordapp.com/api/guilds/428366869993488401/widget.png" alt="Chat on discord"><a/>
 </p>
 
 # electron-nuxt-boilerplate
