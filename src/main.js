@@ -1,63 +1,54 @@
-import { app, BrowserWindow } from 'electron'
-import MenuBuilder from './menu';
+import {app, BrowserWindow, Menu, shell} from 'electron'
 
 const dev = process.env.NUXT_ENV === 'development'
 const debug = process.env.NUXT_DEBUG === 'true'
-
-if (!dev) {
-  const sourceMapSupport = require('source-map-support');
-  sourceMapSupport.install();
-}
-
-if (dev || debug === 'true') {
-  require('electron-debug')();
-  const path = require('path');
-  const p = path.join(__dirname, '..', 'app', 'node_modules');
-  require('module').globalPaths.push(p);
-}
-
-const installExtensions = async () => {
-  const installer = require('electron-devtools-installer');
-  const extensions = [
-    'VUEJS_DEVTOOLS'
-  ];
-
-  return Promise
-    .all(extensions.map(name => installer.default(installer[name], false)))
-    .catch(console.log);
-};
 
 let url = dev ? `http://localhost:${process.env.PORT}` : `file://${__dirname}/index.html`
 let mainWindow
 
 app.on('ready', async () => {
-  if (dev || debug) {
-    await installExtensions();
-  }
-
   mainWindow = new BrowserWindow({
     show: false,
+    frame: false,
+    transparent: true,
     width: 1024,
     height: 728
-  });
+  })
 
-  mainWindow.loadURL(url);
+  mainWindow.loadURL(url)
 
   mainWindow.webContents.on('did-finish-load', () => {
     if (!mainWindow) {
-      throw new Error('"mainWindow" is not defined');
+      throw new Error('"mainWindow" is not defined')
     }
-    mainWindow.show();
-    mainWindow.focus();
-  });
+    mainWindow.show()
+    mainWindow.focus()
+
+    if (debug) {
+      mainWindow.openDevTools()
+      mainWindow.webContents.on('context-menu', (e, props) => {
+        const { x, y } = props
+        Menu
+          .buildFromTemplate([{
+            label: 'Inspect element',
+            click: () => {
+              mainWindow.inspectElement(x, y)
+            }
+          }])
+          .popup(mainWindow)
+      })
+    }
+  })
+
+  mainWindow.webContents.on('new-window', (e, url) => {
+    e.preventDefault()
+    shell.openExternal(url)
+  })
 
   mainWindow.on('closed', () => {
-    mainWindow = null;
-  });
-
-  const menuBuilder = new MenuBuilder(mainWindow);
-  menuBuilder.buildMenu();
-});
+    mainWindow = null
+  })
+})
 
 app.on('window-all-closed', () => {
   // Respect the OSX convention of having the application in memory even

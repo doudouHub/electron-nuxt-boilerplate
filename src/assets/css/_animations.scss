@@ -1,0 +1,12 @@
+
+.page-enter-active, .page-leave-active {
+  transition: all .25s cubic-bezier(.55,0,.1,1);
+}
+
+.page-enter {
+  transform: translateX(-100vw);
+}
+
+.page-leave-active {
+  transform: translateX(100vw);
+}
