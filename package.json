@@ -17,7 +17,7 @@
     "package-win": "npm run build && build --win --x64",
     "lint": "eslint --ext .js,.vue --ignore-path .gitignore ./src",
     "lint:fix": "npm run lint -- --fix",
-    "lint:styles": "stylelint ./src/assets/**/*.scss ./src/assets/**/*.css --syntax scss",
+    "lint:styles": "stylelint ./src/assets/**/*.scss ./src/assets/**/*.css ./src/**/*.vue --syntax scss",
     "lint:styles:fix": "npm run lint:styles -- --fix",
     "postinstall": "npm run electron-rebuild",
     "deps": "npm-check -u",
@@ -107,6 +107,7 @@
     "standard-version": "^4.3.0",
     "stylelint": "^9.2.0",
     "stylelint-config-recommended-scss": "^3.2.0",
+    "stylelint-processor-html": "^1.0.0",
     "stylelint-scss": "^3.1.0"
   },
   "dependencies": {
