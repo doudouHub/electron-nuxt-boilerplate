@@ -1,4 +1,4 @@
-import {app, BrowserWindow, Menu, shell} from 'electron'
+import { app, BrowserWindow, Menu, shell } from 'electron'
 
 const dev = process.env.NUXT_ENV === 'development'
 const debug = process.env.NUXT_DEBUG === 'true'
